@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "organizationID": {
+            "required": true,
+            "type": "int64"
+        },
+        "requestBody": {
+            "description": "KeywordList represents a list of KeywordScenarios for an organization",
+            "type": "object",
+            "properties": {
+                "keywordScenarioList": {
+                    "type": "array",
+                    "items": {
+                        "description": "KeywordScenario contains all four keywords, their scenarioIDs and a priority",
+                        "type": "object",
+                        "properties": {
+                            "keyword_1": {
+                                "type": "string",
+                                "x-go-name": "Keyword1"
+                            },
+                            "keyword_2": {
+                                "type": "string",
+                                "x-go-name": "Keyword2"
+                            },
+                            "priority": {
+                                "type": "integer",
+                                "format": "int64",
+                                "x-go-name": "Priority"
+                            },
+                            "scenarioIds": {
+                                "type": "array",
+                                "items": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                },
+                                "x-go-name": "ScenarioIDs"
+                            },
+                            "type_1": {
+                                "type": "string",
+                                "x-go-name": "Type1"
+                            },
+                            "type_2": {
+                                "type": "string",
+                                "x-go-name": "Type2"
+                            }
+                        },
+                        "x-go-package": "groupalarm.com/go/els-cobra/api/services"
+                    },
+                    "x-go-name": "KeywordScenarioList"
+                },
+                "organizationId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "OrganizationID"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/els-cobra/api/services"
+        }
+    }
+}

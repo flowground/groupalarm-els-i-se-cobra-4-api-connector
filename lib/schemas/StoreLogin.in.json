@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "organizationID": {
+            "required": true,
+            "type": "int64"
+        },
+        "requestBody": {
+            "description": "Login contains a single organization's login data",
+            "type": "object",
+            "properties": {
+                "organizationId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "OrganizationID"
+                },
+                "url": {
+                    "type": "string",
+                    "x-go-name": "URL"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/els-cobra/api/services"
+        }
+    }
+}

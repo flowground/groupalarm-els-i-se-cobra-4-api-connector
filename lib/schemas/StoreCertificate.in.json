@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "organizationID": {
+            "required": true,
+            "type": "int64"
+        },
+        "requestBody": {
+            "description": "Certificate contains all certificates for a given organization",
+            "type": "object",
+            "properties": {
+                "caChain": {
+                    "type": "string",
+                    "x-go-name": "CAChain"
+                },
+                "certificate": {
+                    "type": "string",
+                    "x-go-name": "Certificate"
+                },
+                "organizationId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "OrganizationID"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "x-go-name": "PrivateKey"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/els-cobra/api/services"
+        }
+    }
+}

@@ -1,0 +1,248 @@
+{
+    "title": "groupalarm ELS iSE-Cobra 4 API",
+    "description": "The ELS iSE-Cobra 4 service implements all iSE-Cobra 4 functions for GroupAlarm\n\n# Authentication\n\n<!-- ReDoc-Inject: <security-definitions> -->",
+    "docsUrl": "",
+    "url": "https://app.groupalarm.com/api/v1/els-cobra",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://app.groupalarm.com/api/v1/els-cobra",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_API_Token": {
+                "label": "API-TOKEN (API_Token)",
+                "viewClass": "TextFieldView",
+                "note": "To use this API, you need an API-Token from the RBAC settings of your GroupAlarm organization. Place the token inside the HTTP-Header `API-Token` for every request, otherwise the API will return an \"401 Unauthorized\" error for your request."
+            },
+            "auth_Personal-Access-Token": {
+                "label": "Personal-Access-Token (Personal-Access-Token)",
+                "viewClass": "TextFieldView",
+                "note": "To use this API, you need a Personal Access Token from your profile settings. Place the token inside the HTTP-Header `Personal-Access-Token` for every request, otherwise the API will return an \"401 Unauthorized\" error for your request."
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "GetCertificate": {
+            "main": "./lib/actions/GetCertificate.js",
+            "title": "GetCertificate",
+            "description": "Returns the requested certificate for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StoreCertificate": {
+            "main": "./lib/actions/StoreCertificate.js",
+            "title": "StoreCertificate",
+            "description": "Store the given certificate for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StoreCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCertificate": {
+            "main": "./lib/actions/DeleteCertificate.js",
+            "title": "DeleteCertificate",
+            "description": "Delete the certificate for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCredentials": {
+            "main": "./lib/actions/GetCredentials.js",
+            "title": "GetCredentials",
+            "description": "Returns all or the requested credentials for the given organizationID (and serviceName)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCredentials.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StoreCredentials": {
+            "main": "./lib/actions/StoreCredentials.js",
+            "title": "StoreCredentials",
+            "description": "Store the given credentials for the given organizationID and serviceName",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StoreCredentials.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCredentials": {
+            "main": "./lib/actions/DeleteCredentials.js",
+            "title": "DeleteCredentials",
+            "description": "Delete the login for the given organizationID and serviceName",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCredentials.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetKeywords": {
+            "main": "./lib/actions/GetKeywords.js",
+            "title": "GetKeywords",
+            "description": "Returns the requested KeywordList for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetKeywords.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StoreKeywords": {
+            "main": "./lib/actions/StoreKeywords.js",
+            "title": "StoreKeywords",
+            "description": "Store the given KeywordList for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StoreKeywords.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteKeywords": {
+            "main": "./lib/actions/DeleteKeywords.js",
+            "title": "DeleteKeywords",
+            "description": "Delete the KeywordList for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteKeywords.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetLogin": {
+            "main": "./lib/actions/GetLogin.js",
+            "title": "GetLogin",
+            "description": "Returns the requested login for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetLogin.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StoreLogin": {
+            "main": "./lib/actions/StoreLogin.js",
+            "title": "StoreLogin",
+            "description": "Store the given login for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StoreLogin.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteLogin": {
+            "main": "./lib/actions/DeleteLogin.js",
+            "title": "DeleteLogin",
+            "description": "Delete the login for the given organizationID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteLogin.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
